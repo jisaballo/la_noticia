@@ -5,38 +5,40 @@ import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ElUniversoPage } from '../pages/el-universo/el-universo';
-import { ElComercioPage } from '../pages/el-comercio/el-comercio';
+import { FuentesPage } from '../pages/fuentes/fuentes';
+import { FuenteDetallesPage } from '../pages/fuente-detalles/fuente-detalles';
 import { NoticiasPage } from '../pages/noticias/noticias';
+import { NoticiaDetallePage } from '../pages/noticia-detalle/noticia-detalle';
 import { AboutPage } from '../pages/about/about';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FeedProvider } from '../providers/feed/feed';
 import { RedditDataProvider } from '../providers/reddit-data/reddit-data';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ElUniversoPage,
-    ElComercioPage,
+    FuentesPage,
+    FuenteDetallesPage,
     NoticiasPage,
+    NoticiaDetallePage,
     AboutPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ElUniversoPage,
-    ElComercioPage,
+    FuentesPage,
+    FuenteDetallesPage,
     NoticiasPage,
+    NoticiaDetallePage,
     AboutPage
   ],
   providers: [

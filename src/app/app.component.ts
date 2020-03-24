@@ -3,10 +3,9 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ElUniversoPage } from '../pages/el-universo/el-universo';
+import { FuentesPage } from '../pages/fuentes/fuentes';
+import { NoticiasPage } from '../pages/noticias/noticias';
 import { AboutPage } from '../pages/about/about'
-import { ElComercioPage } from '../pages/el-comercio/el-comercio';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +13,7 @@ import { ElComercioPage } from '../pages/el-comercio/el-comercio';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = NoticiasPage;
 
   periodicos: any;
   pages: Array<{title: string, component: any}>;
@@ -25,9 +24,8 @@ export class MyApp {
       
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Inicio', component: HomePage },
-      { title: 'El Universo', component: ElUniversoPage },
-      { title: 'El Comercio', component: ElComercioPage },
+      { title: 'Noticias', component: NoticiasPage },
+      { title: 'Fuentes', component: FuentesPage },
       { title: 'Acerca de...', component: AboutPage }
     ];
 

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 import { FeedProvider, FeedItem, Feed } from '../../providers/feed/feed';
+
+import { NoticiaDetallePage } from '../noticia-detalle/noticia-detalle';
 
 /**
  * Generated class for the NoticiasPage page.
@@ -21,48 +22,85 @@ export class NoticiasPage {
 
   cargando: Boolean;
   articles: FeedItem[];
+  totalArticles: FeedItem[];
 
-  url: any;
+  url: string[];
+  periodico: number;
+  seccion: number;
+  feeds: Feed[];
+  emptyFeed: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private feedProvider: FeedProvider, 
-    private alertCtrl: AlertController, private iab: InAppBrowser, public loadingCtrl: LoadingController) {
-    this.url = navParams.get('url');
+    public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
+    this.periodico = 0;
+    this.seccion = 0;
 
+    this.doRefresh(0,true);
+  }
+ 
+  private loadFeeds() {
+    this.feedProvider.getSavedFeeds().then(
+      allFeeds => {
+        this.feeds = allFeeds;
+        this.articles = [];
+        
+        if(this.feeds.length > 0)
+          this.emptyFeed = false;
+        else
+          this.emptyFeed = true;
+
+        this.url = [];
+        this.feeds.forEach(element => {
+          this.periodico = element["periodico"];
+          this.seccion = element["seccion"];
+          this.url.push(element["url"]);
+        });
+        this.feedProvider.getArticlesForUrl(this.url, this.periodico, this.seccion).subscribe(res => {
+          res.forEach(element => {
+            this.articles.push(element);
+          });
+        });
+      });
+  }
+
+  doRefresh(refresher, loadingShow){
+    
+    this.cargando = true;
     let loading = this.loadingCtrl.create({
       content: 'Actualizando...'
     });
 
-    loading.present();
-    this.doRefresh(0);
-    loading.dismiss();
+    if(loadingShow == true)
+      loading.present();
+
+    this.loadFeeds();
+    this.cargando = false;
+
+    setTimeout(() => {
+      if(refresher != 0)
+        refresher.complete();
+      loading.dismiss();
+    }, 1000);
   }
 
-  doRefresh(refresher){
-
-    this.cargando = true;
-    
-    this.feedProvider.getArticlesForUrl(this.url).subscribe(res => {
-      this.articles = res;
-      this.cargando = false;
-      if (this.articles.length == 0)
-        this.doRefresh(0);
-      if (refresher != 0)
-        refresher.complete();
+  viewDetail(agencia, seccion, title, description, pubDate, url_feeds, urlImg){
+    this.navCtrl.push(NoticiaDetallePage , {
+      agencia : agencia,
+      seccion : seccion,
+      titulo : title,
+      descipcion : description,
+      fecha : pubDate,
+      url : url_feeds,
+      urlImg : urlImg 
     });
   }
 
   presentAlert() {
     let alert = this.alertCtrl.create({
-      title: 'Error de conexión',
-      subTitle: 'El periódico esta temporalmente fuera de línea',
+      title: 'Fuentes',
+      subTitle: 'No tiene fuentes configuradas. Por favor seleccione alguna en el menú izquierdo.',
       buttons: ['Aceptar']
     });
     alert.present();
   }
-
-  openArticle(url: string){
-    this.iab.create(url, '_blank');
-    // window.open(url, '_blank');
-  }
-
 }

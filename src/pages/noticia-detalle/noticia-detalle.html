@@ -1,0 +1,27 @@
+<!--
+  Generated template for the NoticiaDetallePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Noticias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <img class="img" src="{{urlImg}}"><br><br>
+    <p text-wrap>{{agencia + " - " + seccion}}</p><hr><br>
+    <p class="pubDate">{{pubDate}}</p><br>
+    <p text-wrap class="title">{{title}}</p><br>
+    <p text-wrap text-justify>{{description}}</p><br>
+    <ion-row>
+        <ion-col col-3></ion-col>
+        <ion-col col-6><button ion-button (click)="openArticle(url)">Ver articulo</button></ion-col>
+        <ion-col col-3></ion-col>
+    </ion-row>
+  </ion-item>
+</ion-content>

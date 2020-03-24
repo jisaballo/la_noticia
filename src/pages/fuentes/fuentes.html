@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Fuentes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines *ngFor="let periodico of periodicos; let indexPeriodico = index">
+    <ion-item (click)="viewDetail(indexPeriodico)">
+      <ion-thumbnail item-start><img src="{{periodico.imgIcon}}"></ion-thumbnail>
+      <h2>{{periodico.nombre}}</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

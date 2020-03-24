@@ -1,7 +1,36 @@
 {
     "periodicos":
     [{
+        "nombre": "El País",
+        "img": "assets/img/el_pais.jpg",
+        "imgIcon": "assets/img/el_pais_icon.png",
+        "secciones":
+        [{
+            "nombre": "América",
+            "url": "http://ep00.epimg.net/rss/elpais/portada_america.xml"
+        },{
+            "nombre": "Tecnología",
+            "url": "http://ep00.epimg.net/rss/tecnologia/portada.xml"
+        },{
+            "nombre": "Economía",
+            "url": "http://ep00.epimg.net/rss/economia/portada.xml"
+        },{
+            "nombre": "Ciencia",
+            "url": "http://ep00.epimg.net/rss/elpais/ciencia.xml"
+        },{
+            "nombre": "Deportes",
+            "url": "http://ep00.epimg.net/rss/deportes/portada.xml"
+        },{
+            "nombre": "Internacional",
+            "url": "http://ep00.epimg.net/rss/internacional/portada.xml"
+        },{
+            "nombre": "Cultura",
+            "url": "http://ep00.epimg.net/rss/cultura/portada.xml"
+        }]
+    },{
         "nombre": "El Universo",
+        "img": "assets/img/el_universo.jpg",
+        "imgIcon": "assets/img/el_universo_icon.png",
         "secciones":
         [{
             "nombre": "Política",
@@ -27,6 +56,8 @@
         }]
     },{
         "nombre": "El Comercio",
+        "img": "assets/img/el_comercio.jpg",
+        "imgIcon": "assets/img/el_comercio_icon.png",
         "secciones":
         [{
             "nombre": "Titulares",
@@ -43,6 +74,63 @@
         },{
             "nombre": "Opinión",
             "url": "http://www.elcomercio.com/rss/opinion"
+        }]
+    },{
+        "nombre": "El Telégrafo",
+        "img": "assets/img/el_telegrafo.jpg",
+        "imgIcon": "assets/img/el_telegrafo_icon.png",
+        "secciones":
+        [{
+            "nombre": "Economía",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/8/88:economia?format=feed"
+        },{
+            "nombre": "Opinión",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/20/4:opinion?format=feed"
+        },{
+            "nombre": "Cultura",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/7/42:cultura?format=feed"
+        },{
+            "nombre": "Justicia",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/13/39:judicial?format=feed"
+        },{
+            "nombre": "Fanático",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/6/3:fanatico?format=feed"
+        },{
+            "nombre": "Sociedad",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/4/41:sociedad?format=feed"
+        },{
+            "nombre": "Mundo",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/9/77:mundo?format=feed"
+        },{
+            "nombre": "Política",
+            "url": "http://www.eltelegrafo.com.ec/rss/categoria/2/318:politica?format=feed"
+        }]
+    },{
+        "nombre": "Extra",
+        "img": "assets/img/extra.jpg",
+        "imgIcon": "assets/img/extra_icon.png",
+        "secciones":
+        [{
+            "nombre": "Portada",
+            "url": "http://www.extra.ec/rss/portada.xml"
+        },{
+            "nombre": "Actualidad",
+            "url": "http://www.extra.ec/rss/actualidad.xml"
+        },{
+            "nombre": "Deportes",
+            "url": "http://www.extra.ec/rss/deportes.xml"
+        },{
+            "nombre": "Buena Vida",
+            "url": "http://www.extra.ec/rss/buena-vida.xml"
+        },{
+            "nombre": "Opinión",
+            "url": "http://www.extra.ec/rss/opinion.xml"
+        },{
+            "nombre": "Blogs",
+            "url": "http://www.extra.ec/rss/blogs.xml"
+        },{
+            "nombre": "Extra Divas",
+            "url": "http://www.extra.ec/rss/extra-divas.xml"
         }]
     }]
 }

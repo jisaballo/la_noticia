@@ -6,21 +6,45 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     <ion-title>Noticias</ion-title>
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)">
     <ion-refresher-content refreshingText="Actualizando..."></ion-refresher-content>
   </ion-refresher>
   <ion-spinner *ngIf="loading" id="feed-spinner"></ion-spinner>
+  <ion-card *ngIf="emptyFeed">
+    <ion-card-header>
+      Ayuda
+    </ion-card-header>
+    <ion-item text-wrap>
+      <h2>Configurar el lector de noticias</h2>
+      <p>1. Seleccione el menu arriba a la izquierda</p>
+      <p>2. Seleccione la opcion "Fuentes"</p>
+      <p>3. En la lista de fuentes predefinidas suscríbase a las agencias de noticias que que sean de su interes</p>
+      <p>4. Regrese a la opcion de noticias en el menu</p>
+      <p>5. Su configuracion quedará guardada cuando vuelva a iniciar la aplicacion y puede modificarla cuando desee</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <h2>Envío de sugerencia</h2>
+      <p>En el menu de la derecha a la izquierda en "Acerca de" puede escribirnos a nuestro correo.</p>
+      
+    </ion-item>
+  </ion-card>
+
   <ion-list>
-    <div *ngFor="let item of articles" (click)="openArticle(item.link)">
-      <p class="title">{{item.title}}</p>
-      <p>{{item.description}}</p>
-      <ion-item-divider></ion-item-divider>
-    </div>
+    <ion-item text-wrap *ngFor="let item of articles" (click)="viewDetail(item.agencia, item.seccion, item.title,item.description,item.pubDate,item.link,item.urlImg)">
+      <ion-thumbnail item-start>
+        <img class="img" src="{{item.urlImg}}">
+      </ion-thumbnail>
+      <p class="title">{{item.title.length > 100 ? item.title.substring(0,100) + "..." : item.title}}</p>
+      <p class="pubDate">{{item.agencia + " - " + item.seccion}}</p>
+      <p class="pubDate">{{item.pubDate}}</p>
+    </ion-item>
   </ion-list>
 </ion-content>
