@@ -1,0 +1,26 @@
+<!--
+  Generated template for the NoticiasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Noticias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="Actualizando..."></ion-refresher-content>
+  </ion-refresher>
+  <ion-spinner *ngIf="loading" id="feed-spinner"></ion-spinner>
+  <ion-list>
+    <div *ngFor="let item of articles" (click)="openArticle(item.link)">
+      <p class="title">{{item.title}}</p>
+      <p>{{item.description}}</p>
+      <ion-item-divider></ion-item-divider>
+    </div>
+  </ion-list>
+</ion-content>

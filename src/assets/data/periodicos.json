@@ -1,0 +1,48 @@
+{
+    "periodicos":
+    [{
+        "nombre": "El Universo",
+        "secciones":
+        [{
+            "nombre": "Política",
+            "url": "http://www.eluniverso.com/rss/politica.xml"
+        },{
+            "nombre": "Economía",
+            "url": "http://www.eluniverso.com/rss/economia.xml"
+        },{
+            "nombre": "Internacional",
+            "url": "http://www.eluniverso.com/rss/internacional.xml"
+        },{
+            "nombre": "Ecuador",
+            "url": "http://www.eluniverso.com/rss/ecuador.xml"
+        },{
+            "nombre": "Intercultural",
+            "url": "http://www.eluniverso.com/rss/intercultural"
+        },{
+            "nombre": "Seguridad",
+            "url": "http://www.eluniverso.com/rss/seguridad"
+        },{
+            "nombre": "Informes",
+            "url": "http://www.eluniverso.com/rss/informes.xml"
+        }]
+    },{
+        "nombre": "El Comercio",
+        "secciones":
+        [{
+            "nombre": "Titulares",
+            "url": "http://www.elcomercio.com/rss/"
+        },{
+            "nombre": "Actualidad",
+            "url": "http://www.elcomercio.com/rss/actualidad"
+        },{
+            "nombre": "Tendencias",
+            "url": "http://www.elcomercio.com/rss/tendencias"
+        },{
+            "nombre": "Deportes",
+            "url": "http://www.elcomercio.com/rss/deportes"
+        },{
+            "nombre": "Opinión",
+            "url": "http://www.elcomercio.com/rss/opinion"
+        }]
+    }]
+}

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>El Universo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="feed-list" padding>
+  <img class="img" src="../assets/img/el_universo.jpg">
+  <ion-list *ngIf="loading" padding>
+      <ion-list-header>Secciones</ion-list-header>
+      <div *ngFor="let item of periodico.secciones; let i = index">
+        <button ion-button clear (click)="viewFeeds(periodico.secciones[i].url)">{{item.nombre}}</button><br>
+      </div>
+  </ion-list>
+</ion-content>
